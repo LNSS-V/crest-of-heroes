@@ -1,0 +1,19 @@
+# Godot 4+ generated files
+.godot/
+/android/
+
+# Export output
+/build/
+/export/
+*.pck
+*.exe
+*.x86_64
+*.apk
+*.aab
+
+# Editor / OS temp files
+*.TMP
+*.tmp
+*~
+.DS_Store
+Thumbs.db
