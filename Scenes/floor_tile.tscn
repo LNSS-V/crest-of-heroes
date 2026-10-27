@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5684b00ffpp3"]
+
+[ext_resource type="Texture2D" uid="uid://d01e4mn7ivgmt" path="res://Textures/floor.png" id="1_u3y6w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ije0"]
+albedo_texture = ExtResource("1_u3y6w")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ppma"]
+size = Vector3(1, 0.25, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u3y6w"]
+data = PackedVector3Array(-0.5, 0.125, 0.5, 0.5, 0.125, 0.5, -0.5, -0.125, 0.5, 0.5, 0.125, 0.5, 0.5, -0.125, 0.5, -0.5, -0.125, 0.5, 0.5, 0.125, -0.5, -0.5, 0.125, -0.5, 0.5, -0.125, -0.5, -0.5, 0.125, -0.5, -0.5, -0.125, -0.5, 0.5, -0.125, -0.5, 0.5, 0.125, 0.5, 0.5, 0.125, -0.5, 0.5, -0.125, 0.5, 0.5, 0.125, -0.5, 0.5, -0.125, -0.5, 0.5, -0.125, 0.5, -0.5, 0.125, -0.5, -0.5, 0.125, 0.5, -0.5, -0.125, -0.5, -0.5, 0.125, 0.5, -0.5, -0.125, 0.5, -0.5, -0.125, -0.5, 0.5, 0.125, 0.5, -0.5, 0.125, 0.5, 0.5, 0.125, -0.5, -0.5, 0.125, 0.5, -0.5, 0.125, -0.5, 0.5, 0.125, -0.5, -0.5, -0.125, 0.5, 0.5, -0.125, 0.5, -0.5, -0.125, -0.5, 0.5, -0.125, 0.5, 0.5, -0.125, -0.5, -0.5, -0.125, -0.5)
+
+[node name="FloorTile" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_0ije0")
+mesh = SubResource("BoxMesh_0ppma")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_u3y6w")

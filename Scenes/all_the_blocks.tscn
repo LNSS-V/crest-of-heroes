@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://44bfk6bxxc7b"]
+
+[ext_resource type="PackedScene" uid="uid://b5684b00ffpp3" path="res://Scenes/floor_tile.tscn" id="1_rqe8j"]
+[ext_resource type="PackedScene" uid="uid://cqkmdhby43bih" path="res://Scenes/wall_tile.tscn" id="2_823dx"]
+[ext_resource type="Material" uid="uid://de2axbrqa66l" path="res://Textures/Materials/floor.tres" id="2_eaymt"]
+[ext_resource type="Material" uid="uid://dlhn20efi0xq0" path="res://Textures/Materials/wall.tres" id="4_dlau5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wynix"]
+material = ExtResource("2_eaymt")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i1stp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vgexa"]
+material = ExtResource("4_dlau5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s2qsq"]
+
+[node name="tile_library_source" type="Node3D"]
+
+[node name="block_floor" parent="." instance=ExtResource("1_rqe8j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0133138895, 4.8818965, 0.9979358)
+mesh = SubResource("BoxMesh_wynix")
+skeleton = NodePath("")
+
+[node name="block_floor_StaticBody3D" type="StaticBody3D" parent="block_floor"]
+
+[node name="block_floor_CollisionShape3D" type="CollisionShape3D" parent="block_floor/block_floor_StaticBody3D"]
+shape = SubResource("BoxShape3D_i1stp")
+
+[node name="block_wall" parent="." instance=ExtResource("2_823dx")]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, -1, -1, -4.371139e-08, -4.371139e-08, -0.0011239052, 4.873613, 0)
+mesh = SubResource("BoxMesh_vgexa")
+
+[node name="block_wall_StaticBody3D" type="StaticBody3D" parent="block_wall"]
+
+[node name="block_wall_CollisionShape3D" type="CollisionShape3D" parent="block_wall/block_wall_StaticBody3D"]
+shape = SubResource("BoxShape3D_s2qsq")

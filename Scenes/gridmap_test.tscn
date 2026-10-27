@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://db1av52sy2f0"]
+
+[ext_resource type="MeshLibrary" uid="uid://cqco0tujmfja0" path="res://Blocks/all_the_blocks.tres" id="1_v0fnv"]
+[ext_resource type="PackedScene" uid="uid://nhsi5ydkqq25" path="res://Player/player.tscn" id="2_ox5dh"]
+
+[node name="World" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 7, 5)
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+
+[node name="GridMap" type="GridMap" parent="Environment"]
+mesh_library = ExtResource("1_v0fnv")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65536, 1, 196609, 65536, 0, 196609, 65537, 65535, 196609, 65536, 65535, 196609, 65537, 65534, 196609, 65536, 65534, 196609, 131071, 65534, 196609, 131071, 65535, 196609, 131070, 65535, 196609, 131071, 0, 196609, 131071, 1, 196609, 131070, 0, 196609, 131069, 0, 196609, 131070, 1, 196609, 131070, 2, 196609, 131070, 3, 196609, 131069, 2, 196609, 131069, 1, 196609, 131071, 2, 196609, 65536, 2, 196609, 65536, 3, 196609, 131071, 3, 196609, 131069, 65535, 196609, 131069, 65534, 196609, 131070, 65534, 196609, 131070, 65533, 196609, 131071, 65533, 196609, 65536, 65533, 196609, 65537, 65533, 196609, 65538, 65533, 196609, 65538, 65534, 196609, 65538, 65535, 196609, 65538, 0, 196609, 65538, 1, 196609, 65538, 2, 196609, 65537, 2, 196609, 65537, 3, 196609, 131069, 3, 196609, 65538, 3, 196609, 65539, 3, 196609, 131069, 65533, 196609, 65537, 0, 196609, 65537, 1, 196609, 131069, 6, 196609, 131067, 4, 196609, 131066, 3, 196609, 131041, 47, 196609)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Player" parent="Environment" instance=ExtResource("2_ox5dh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 1)
+safe_margin = 1.0
